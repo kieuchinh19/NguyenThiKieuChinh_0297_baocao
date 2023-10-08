@@ -84,19 +84,19 @@
                      </a>
                      <ul class="nav nav-treeview">
                         <li class="nav-item">
-                           <a href="product_index.html" class="nav-link">
+                           <a href="index.php?option=product" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Tất cả sản phẩm</p>
                            </a>
                         </li>
                         <li class="nav-item">
-                           <a href="category_index.html" class="nav-link">
+                           <a href="index.php?option=category" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Danh mục</p>
                            </a>
                         </li>
                         <li class="nav-item">
-                           <a href="brand_index.html" class="nav-link">
+                           <a href="index.php?option=brand" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Thương hiệu</p>
                            </a>
@@ -113,13 +113,13 @@
                      </a>
                      <ul class="nav nav-treeview">
                         <li class="nav-item">
-                           <a href="post_index.html" class="nav-link">
+                           <a href="post" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Tất cả bài viết</p>
                            </a>
                         </li>
                         <li class="nav-item">
-                           <a href="topic_index.html" class="nav-link">
+                           <a href="topic" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Chủ đề</p>
                            </a>
@@ -142,7 +142,7 @@
                      </a>
                      <ul class="nav nav-treeview">
                         <li class="nav-item">
-                           <a href="order_index.html" class="nav-link">
+                           <a href="index.php?option=order" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Tất cả đơn hàng</p>
                            </a>
@@ -162,13 +162,13 @@
                      </ul>
                   </li>
                   <li class="nav-item">
-                     <a href="customer_index.html" class="nav-link">
+                     <a href="index.php?option=customer" class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
                         <p class="text">Khách hàng</p>
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a href="contact_index.html" class="nav-link">
+                     <a href="index.php?option=contact" class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
                         <p class="text">Liên hệ</p>
                      </a>
@@ -183,13 +183,13 @@
                      </a>
                      <ul class="nav nav-treeview">
                         <li class="nav-item">
-                           <a href="menu_index.html" class="nav-link">
+                           <a href="index.php?option=menu" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Menu</p>
                            </a>
                         </li>
                         <li class="nav-item">
-                           <a href="banner_index.html" class="nav-link">
+                           <a href="index.php?option=banner" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Banner</p>
                            </a>
@@ -206,7 +206,7 @@
                      </a>
                      <ul class="nav nav-treeview">
                         <li class="nav-item">
-                           <a href="user_index.html" class="nav-link">
+                           <a href="user" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Thành viên</p>
                            </a>

@@ -3,7 +3,7 @@
         'name' => 'nguyenthikieuchinh/shop-ban-sach',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '06c67ad9f510812a47a7283e26767e8f5c8cb992',
+        'reference' => '28f147ece9e4f58dba094570b5d2ca8710dbc1fd',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -130,7 +130,7 @@
         'nguyenthikieuchinh/shop-ban-sach' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '06c67ad9f510812a47a7283e26767e8f5c8cb992',
+            'reference' => '28f147ece9e4f58dba094570b5d2ca8710dbc1fd',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

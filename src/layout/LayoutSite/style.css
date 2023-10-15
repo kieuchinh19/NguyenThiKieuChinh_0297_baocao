@@ -1,0 +1,15 @@
+/* list category */
+.listbrand ul li .list{
+   text-decoration: none;
+   color: black;
+}
+.listcategory ul li .list{
+    text-decoration: none;
+    color: black;
+ }
+ .listcategory ul li .list:hover{
+    color:  red;
+ }
+ .listbrand ul li .list:hover{
+    color: red;
+ }

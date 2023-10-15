@@ -1,0 +1,2 @@
+export const urlImage ='http://localhost/KIEUCHINH/nguyenthikieuchinh_2121110297/laravel/public/images';
+export const urlAPI ="http://localhost/KIEUCHINH/nguyenthikieuchinh_2121110297/laravel/public/api/";

@@ -1,0 +1,129 @@
+{
+    "data": [
+        {
+            "name": "",
+            "image": "https://vn-live-01.slatic.net/p/bdd7023264b8cfdabd4da81690ce2a6f.png ",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://product.hstatic.net/200000343865/product/hoang-tu-be---tb-2022_f0f2f9b813c246c4878e7e685f683d50_master.jpg",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://images2.thanhnien.vn/Uploaded/minhnguyet/2022_05_08/bia-sach2-9886.jpg",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://sg-live-01.slatic.net/p/63b8cddca77e33bae54af650037c022c.png",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://isach.info/images/story/cover/cho_toi_xin_mot_ve_di_tuoi_tho__nguyen_nhat_anh.jpg",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://vn-live-01.slatic.net/p/8d7f9cc67f59acae5b614b078645a5fb.png",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://afamilycdn.com/Images/Uploaded/Share/2011/03/03/06bannetocdo.jpg",
+            "price": 150,
+            "pricesale": 99
+            
+        },
+        {
+            "name": "",
+            "image": "https://cdn0.fahasa.com/media/flashmagazine/images/page_images/dieu_ky_dieu_cua_tiem_tap_hoa_namiya_tai_ban_2018/2023_03_23_16_20_03_1-390x510.jpg",
+            "price": 150,
+            "pricesale": 99
+        }
+    ],
+    "data1": [
+        {
+            "name": "",
+            "image": "https://vn-live-01.slatic.net/p/aa91170f7710e0c6f763f37857995f58.jpg",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://cdn0.fahasa.com/media/catalog/product/d/a/dai_duong_den_-_bia_mem-01.jpg",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://cdn0.fahasa.com/media/flashmagazine/images/page_images/khong_diet_khong_sinh_dung_so_hai_tai_ban_2022/2023_02_04_09_14_54_1-390x510.jpg",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://upload.wikimedia.org/wikipedia/vi/d/d1/HayChamSocMe.jpg",
+            "price": 150,
+            "pricesale": 99
+        }
+    ],
+    "data2": [
+        {
+            "name": "",
+            "image": "https://vn-live-01.slatic.net/p/29e7ea1dd5475134cd5650884e28989d.jpg",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://product.hstatic.net/200000343865/product/hoang-tu-be---tb-2022_f0f2f9b813c246c4878e7e685f683d50_master.jpg",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://vn-live-01.slatic.net/p/29e7ea1dd5475134cd5650884e28989d.jpg",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://product.hstatic.net/200000343865/product/hoang-tu-be---tb-2022_f0f2f9b813c246c4878e7e685f683d50_master.jpg",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://cdn0.fahasa.com/media/flashmagazine/images/page_images/thien_tai_ben_trai__ke_dien_ben_phai_tai_ban_2021/2021_05_10_08_51_00_1-390x510.jpg",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://salt.tikicdn.com/cache/w1200/ts/product/eb/29/be/a2bb94c3b03753efd354c3322f1f46e9.jpg",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://cdn0.fahasa.com/media/flashmagazine/images/page_images/thien_tai_ben_trai__ke_dien_ben_phai_tai_ban_2021/2021_05_10_08_51_00_1-390x510.jpg",
+            "price": 150,
+            "pricesale": 99
+        },
+        {
+            "name": "",
+            "image": "https://salt.tikicdn.com/cache/w1200/ts/product/eb/29/be/a2bb94c3b03753efd354c3322f1f46e9.jpg",
+            "price": 150,
+            "pricesale": 99
+        }
+    ]
+}

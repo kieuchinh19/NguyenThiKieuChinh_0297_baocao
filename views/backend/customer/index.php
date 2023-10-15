@@ -4,7 +4,7 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>Tiêu đề giao diện</title>
+   <title>Tất cả khách hàng</title>
    <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
       <link rel="stylesheet" href="../public/plugins/fontawesome-free/css/all.min.css">
@@ -84,19 +84,19 @@
                      </a>
                      <ul class="nav nav-treeview">
                         <li class="nav-item">
-                           <a href="index.php?option=product" class="nav-link">
+                           <a href="product_index.html" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Tất cả sản phẩm</p>
                            </a>
                         </li>
                         <li class="nav-item">
-                           <a href="index.php?option=category" class="nav-link">
+                           <a href="category_index.html" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Danh mục</p>
                            </a>
                         </li>
                         <li class="nav-item">
-                           <a href="index.php?option=brand" class="nav-link">
+                           <a href="brand_index.html" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Thương hiệu</p>
                            </a>
@@ -113,19 +113,19 @@
                      </a>
                      <ul class="nav nav-treeview">
                         <li class="nav-item">
-                           <a href="index.php?option=post" class="nav-link">
+                           <a href="post_index.html" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Tất cả bài viết</p>
                            </a>
                         </li>
                         <li class="nav-item">
-                           <a href="index.php?option=topic" class="nav-link">
+                           <a href="topic_index.html" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Chủ đề</p>
                            </a>
                         </li>
                         <li class="nav-item">
-                           <a href="index.php?option=page" class="nav-link">
+                           <a href="page_index.html" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Trang đơn</p>
                            </a>
@@ -142,12 +142,12 @@
                      </a>
                      <ul class="nav nav-treeview">
                         <li class="nav-item">
-                           <a href="index.php?option=order" class="nav-link">
+                           <a href="order_index.html" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Tất cả đơn hàng</p>
                            </a>
                         </li>
-                       <!-- <li class="nav-item">
+                        <li class="nav-item">
                            <a href="import_index.html" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Nhập hàng</p>
@@ -158,17 +158,17 @@
                               <i class="far fa-circle nav-icon"></i>
                               <p>Xuất hàng</p>
                            </a>
-                        </li>-->
+                        </li>
                      </ul>
                   </li>
                   <li class="nav-item">
-                     <a href="index.php?option=customer" class="nav-link">
+                     <a href="customer_index.html" class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
                         <p class="text">Khách hàng</p>
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a href="index.php?option=contact" class="nav-link">
+                     <a href="contact_index.html" class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
                         <p class="text">Liên hệ</p>
                      </a>
@@ -183,13 +183,13 @@
                      </a>
                      <ul class="nav nav-treeview">
                         <li class="nav-item">
-                           <a href="index.php?option=menu" class="nav-link">
+                           <a href="menu_index.html" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Menu</p>
                            </a>
                         </li>
                         <li class="nav-item">
-                           <a href="index.php?option=banner" class="nav-link">
+                           <a href="banner_index.html" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Banner</p>
                            </a>
@@ -206,18 +206,25 @@
                      </a>
                      <ul class="nav nav-treeview">
                         <li class="nav-item">
-                           <a href="index.php?option=user" class="nav-link">
+                           <a href="user_index.html" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Thành viên</p>
                            </a>
-                       <!-- </li>
+                        </li>
                         <li class="nav-item">
                            <a href="config_index.html" class="nav-link">
                               <i class="far fa-circle nav-icon"></i>
                               <p>Cấu hình</p>
                            </a>
-                        </li>-->
+                        </li>
                      </ul>
+                  </li>
+                  <li class="nav-header">LABELS</li>
+                  <li class="nav-item">
+                     <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-circle text-danger"></i>
+                        <p class="text">Important</p>
+                     </a>
                   </li>
                   <li class="nav-header">LABELS</li>
                   <li class="nav-item">
@@ -242,3 +249,83 @@
             </nav>
          </div>
       </aside>
+      <!-- CONTENT -->
+      <div class="content-wrapper">
+         <section class="content-header">
+            <div class="container-fluid">
+               <div class="row mb-2">
+                  <div class="col-sm-12">
+                     <h1 class="d-inline">Tất cả khách hàng</h1>
+                     <a href="index.php?option=customer&cat=create" class="btn btn-sm btn-primary">Thêm khách hàng</a>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- Main content -->
+         <section class="content">
+            <div class="card">
+               <div class="card-header">
+                  Noi dung
+               </div>
+               <div class="card-body">
+                  <table class="table table-bordered" id="mytable">
+                     <thead>
+                        <tr>
+                           <th class="text-center" style="width:30px;">
+                              <input type="checkbox">
+                           </th>
+                           <th class="text-center" style="width:130px;">Hình ảnh</th>
+                           <th>Họ tên</th>
+                           <th>Điện thoại</th>
+                           <th>Email</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr class="datarow">
+                           <td>
+                              <input type="checkbox">
+                           </td>
+                           <td>
+                              <img src="../public/images/user.jpg" alt="user.jpg">
+                           </td>
+                           <td>
+                              <div class="name">
+                                 Hồ Diên Lợi
+                              </div>
+                              <div class="function_style">
+                                 <a href="#">Hiện</a> |
+                                 <a href="#">Chỉnh sửa</a> |
+                                 <a href="customer_show.html">Chi tiết</a> |
+                                 <a href="#">Xoá</a>
+                              </div>
+                           </td>
+                           <td>0987654331</td>
+                           <td>dienloisoft@gmail.com</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </section>
+      </div>
+      <!-- END CONTENT-->
+      <footer class="main-footer">
+         <div class="float-right d-none d-sm-block">
+            <b>Version</b> 3.2.0
+         </div>
+         <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
+         reserved.
+      </footer>
+   </div>
+   <script src="../public/jquery/jquery-3.7.0.min.js"></script>
+   <script src="../public/datatables/js/dataTables.min.js"></script>
+   <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <script src="../public/dist/js/adminlte.min.js"></script>
+   <script>
+      $(document).ready(function () {
+         $('#mytable').DataTable();
+      });
+   </script>
+</body>
+
+</html>

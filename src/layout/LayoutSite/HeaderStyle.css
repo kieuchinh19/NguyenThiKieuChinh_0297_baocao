@@ -1,0 +1,37 @@
+
+.box50
+{
+   
+    width:60px;
+    height:60px;
+    text-align: center;
+    line-height: 40px;
+    display: inline-block;
+}
+.myfooter ul
+{
+    list-style: none;
+    padding:0px;
+    margin:0px;
+}
+.myfooter ul>li>a
+{
+    text-decoration: none;
+    color: #d4cece;
+}
+div {
+  
+  background-size: cover;
+  background-position: center;
+}
+
+.a:hover {
+  color: rgb(0, 136, 255);
+}
+.h:hover {
+  color: rgb(87, 3, 46);
+}
+::selection {
+  color: rgb(182, 167, 167);
+  background-color: black;
+}

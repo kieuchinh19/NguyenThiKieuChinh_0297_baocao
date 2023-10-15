@@ -75,20 +75,31 @@ $list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
                                        <input type="checkbox">
                                     </td>
                                     <td>
-                                       <img src="../public/images/brand/brand.jpg" alt="brand.jpg">
-                                    </td>
+                                    <img class="img-fluid" src="../public/images/brand/<?=$item->image;?>" alt="<?$item->image;?>">                                    </td>
                                     <td>
                                        <div class="name">
-                                          <?php echo $item->name; ?>
+                                          <?= $item->name; ?>
                                        </div>
                                        <div class="function_style">
-                                          <a href="#">Hiện</a> |
-                                          <a href="#">Chỉnh sửa</a> |
-                                          <a href="../backend/brand_show.html">Chi tiết</a> |
-                                          <a href="#">Xoá</a>
+                                          <?php if ($item->status == 1) : ?>
+                                             <a href="index.php?option=brand&cat=status&id=<?= $item->id; ?>
+                                          " class="btn btn-success btn-xs"><i class="fas fa-toggle-on"></i>Hiện
+                                             </a>
+                                          <?php else : ?>
+                                             <a href="index.php?option=brand&cat=status&id=<?= $item->id; ?>
+                                          " class="btn btn-danger btn-xs"><i class="fas fa-toggle-off"></i>Ẩn
+                                             </a>
+                                          <?php endif; ?>
+
+                                          <a href="index.php?option=brand&cat=edit&id=<?= $item->id; ?>
+                                          " class="btn btn-primary btn-xs"><i class="fas fa-edit"></i>Chỉnh sửa</a>
+                                          <a href="index.php?option=brand&cat=show&id=<?= $item->id; ?>
+                                          " class="btn btn-info btn-xs"><i class="fas fa-eye"></i>Chi tiết</a>
+                                          <a href="index.php?option=brand&cat=delete&id=<?= $item->id; ?>
+                                          " class="btn btn-danger btn-xs"><i class="fas fa-trash"></i>Xoá</a>
                                        </div>
                                     </td>
-                                    <td>Slug</td>
+                                    <td><?= $item->slug ?></td>
                                  </tr>
                               <?php endforeach; ?>
                            <?php endif; ?>

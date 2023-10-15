@@ -1,30 +1,26 @@
 <?php
 
-use App\Models\Category;
+use App\Models\Topic;
 
+//status=0--> Rac
+//status=1--> Hiện thị lên trang người dùng
+//
+//SELECT * FROM brand wher status!=0 and id=1 order by created_at desc
 
-$list = category::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
-
-$list_category = Category::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
-
-$parent_id_html = "";
-
-foreach ($list as $parent_id) {
-   $parent_id_html .= "<option value ='$parent_id->id'>$parent_id->name</option>";
-}
+$list = topic::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
 
 ?>
 
-
 <?php require_once "../views/backend/header.php"; ?>
 <!-- CONTENT -->
-<form action="index.php?option=category&cat=process" method="post" enctype="multipart/form-data">
+<form action="index.php?option=topic&cat=process" method="post" enctype="multipart/form-data">
+
    <div class="content-wrapper">
       <section class="content-header">
          <div class="container-fluid">
             <div class="row mb-2">
                <div class="col-sm-12">
-                  <h1 class="d-inline">Tất cả danh mục</h1>
+                  <h1 class="d-inline">Tất cả chủ đề</h1>
                </div>
             </div>
          </div>
@@ -42,27 +38,16 @@ foreach ($list as $parent_id) {
                <div class="row">
                   <div class="col-md-4">
                      <div class="mb-3">
-                        <label>Tên danh mục (*)</label>
-                        <input type="text" name="name" id="name" placeholder="Nhập tên danh mục" class="form-control" onkeydown="handle_slug(this.value);">
+                        <label>Tên chủ đề (*)</label>
+                        <input type="text" name="name" class="form-control">
                      </div>
                      <div class="mb-3">
-                        <label>Slug</label>
-                        <input type="text" name="slug" id="slug" placeholder="Nhập slug" class="form-control">
+                        <label>slug</label>
+                        <input type="text" name="slug" class="form-control">
                      </div>
                      <div class="mb-3">
                         <label>Mô tả</label>
                         <textarea name="description" class="form-control"></textarea>
-                     </div>
-                     <div class="mb-3">
-                        <label>Danh mục cha (*)</label>
-                        <select name="parent_id" class="form-control">
-                           <option value="0">none</option>
-                           <?= $parent_id_html; ?>
-                        </select>
-                     </div>
-                     <div class="mb-3">
-                        <label>Hình đại diện</label>
-                        <input type="file" name="image" class="form-control">
                      </div>
                      <div class="mb-3">
                         <label>Trạng thái</label>
@@ -73,17 +58,14 @@ foreach ($list as $parent_id) {
                      </div>
                   </div>
                   <div class="col-md-8">
-                  <table class="table table-bordered">
+                     <table class="table table-bordered">
                         <thead>
                            <tr>
                               <th class="text-center" style="width:30px;">
                                  <input type="checkbox">
                               </th>
-                              <th class="text-center" style="width:130px;">Hình ảnh</th>
-                              <th>Tên danh mục</th>
-                              <th>ID_Danh mục cha</th>
+                              <th>Tên chủ đề</th>
                               <th>Tên slug</th>
-
                            </tr>
                         </thead>
                         <tbody>
@@ -91,10 +73,7 @@ foreach ($list as $parent_id) {
                               <?php foreach ($list as $item) : ?>
                                  <tr class="datarow">
                                     <td>
-                                       <input type="checkbox">
-                                    </td>
-                                    <td>
-                                       <img class="img-fluid" src="../public/images/category/<?= $item->image; ?>" alt="<?= $item->image; ?>">
+                                    <input type="checkbox">
                                     </td>
                                     <td>
                                        <div class="name">
@@ -104,11 +83,10 @@ foreach ($list as $parent_id) {
                                        <div class="function_style">
                                           <a href="#">Hiện</a> |
                                           <a href="#">Chỉnh sửa</a> |
-                                          <a href="../backend/category_show.html">Chi tiết</a> |
+                                          <a href="../backend/topic_show.html">Chi tiết</a> |
                                           <a href="#">Xoá</a>
                                        </div>
                                     </td>
-                                    <td><?= $item->parent_id ?></td>
                                     <td><?= $item->slug ?></td>
                                  </tr>
                               <?php endforeach; ?>

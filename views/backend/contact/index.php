@@ -1,14 +1,12 @@
 <?php
 
-use App\Models\Contact;
+use App\Models\contact;
 
-$list = Contact::all();
-
+//SELECT * FROM contact WHERE status!=0 Order BY create_at DESC
+$list = contact::where('status', '!=',0)->orderBy('Created_at', 'DESC')->get();
 ?>
-
 <?php require_once '../views/backend/header.php'; ?>
       <!-- CONTENT -->
-      <form action="index.php?option=contact&cat=process" method="post" enctype="multipart/form-data">
       <div class="content-wrapper">
          <section class="content-header">
             <div class="container-fluid">
@@ -45,7 +43,7 @@ $list = Contact::all();
                            </td>
                            <td>
                               <div class="name">
-                                 Kiều Chinh
+                                 Nguyễn Thị Kiều Chinh
                               </div>
                               <div class="function_style">
                                  <a href="#">Hiện</a> |
@@ -54,8 +52,8 @@ $list = Contact::all();
                                  <a href="#">Xoá</a>
                               </div>
                            </td>
-                           <td>098765432</td>
-                           <td>kieuchinh237@gmail.com</td>
+                           <td>0987688892</td>
+                           <td>kieuchinh@gmail.com</td>
                            <td>Tiêu đề</td>
                         </tr>
                      </tbody>
@@ -65,5 +63,4 @@ $list = Contact::all();
          </section>
       </div>
       <!-- END CONTENT-->
-<?php require_once '../views/backend/footer.php'; ?>
-    
+      <?php require_once '../views/backend/footer.php'; ?>

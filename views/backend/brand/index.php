@@ -27,6 +27,10 @@ $list = Brand::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
                   <i class="fa fa-save" aria-hidden="true"></i>
                   Lưu
                </button>
+               
+            <a class="btn btn-sm btn-danger" href="index.php?option=brand&cat=trash">
+              <i class="fas fa-trash"></i> Thùng rác
+            </a>
             </div>
             <div class="card-body">
                <div class="row">

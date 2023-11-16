@@ -1,39 +1,37 @@
 <?php
-
-use App\Models\Category;
 use App\Models\Product;
-
-$slug =  $_REQUEST['cat'];
-$cat = Category::where([['status', '=', 1],['slug', '=', $slug]])
-   ->select('id', 'name')
-   ->first();
+use App\Models\Category;
+$slug=$_REQUEST['cat'];
+$cat=Category::where([['status','=',1],['slug','=',$slug]])->select('id','name')->first();
 $list_id=array();
-array_push($list_id,$cat->id);
-$list_category1 = Category::where([['parent_id','=', $cat->id],['status', '=', 1]])
-   ->orderBy('sort_order','ASC')
-   ->select('id')
-   ->get();
-if(count($list_category1) > 0){
-   foreach($list_category1 as $cat1){
-      array_push($list_id,$cat1->id);
-      $list_category2 = Category::where([['parent_id','=', $cat1->id],['status', '=', 1]])
-   ->orderBy('sort_order','ASC')
-   ->select('id')
-   ->get();
-   if(count($list_category2) > 0){
-      foreach($list_category2 as $cat2){
-         array_push($list_id,$cat2->id);
-         }
-      }
-   }
+array_push($list_id);
+$list_category1=Category::where([['status','=',1],['parent_id','=',$cat->id]])
+->orderBy('created_at','DESC')
+->select('name','slug','id','image')
+->get();
+if(count($list_category1)>0)
+{
+    foreach($list_category1 as $cat1)
+    {
+        array_push($list_id,$cat1->id);
+        $list_category2=Category::where([['status','=',1],['parent_id','=',$cat1->id]])
+        ->orderBy('created_at','DESC')
+                ->select('name','slug','id','image')
+                ->get();
+                if(count($list_category1)>0)
+{
+    foreach($list_category2 as $cat2)
+    {
+        array_push($list_id,$cat2->id);
+    }
 }
-   
- $list_product = Product::where('status', '=', 1)
-     ->whereIn('category_id',$list_id)
-     ->orderBy('created_at','DESC')
-     ->get();
-//&cat=quan-short-nu
-?>
+    }
+}
+$list_product=Product::where('status','=',1)
+->whereIn('category_id',$list_id)
+->orderBy('created_at','DESC')
+->get();
+;?>
 <?php require_once "views/frontend/header.php";?>
    <section class="bg-light">
       <div class="container">
@@ -43,8 +41,7 @@ if(count($list_category1) > 0){
                   <a class="text-main" href="index.html">Trang chủ</a>
                </li>
                <li class="breadcrumb-item active" aria-current="page">
-                  Sản phẩm theo loại
-               </li>
+            </li>
             </ol>
          </nav>
       </div>
@@ -53,41 +50,44 @@ if(count($list_category1) > 0){
       <div class="container">
          <div class="row">
             <div class="col-md-3 order-2 order-md-1">
+              
             <?php require_once "views/frontend/mod-listcategory.php";?>
             <?php require_once "views/frontend/mod-listbrand.php";?>
             <?php require_once "views/frontend/mod-product-new.php";?>
+              
             </div>
             <div class="col-md-9 order-1 order-md-2">
                <div class="category-title bg-main">
-                  <h3 class="fs-5 py-3 text-center"><?= $cat->name; ?></h3>
+                  <h3 class="fs-5 py-3 text-center"></h3>
                </div>
                <div class="product-category mt-3">
                   <div class="row product-list">
-                  <?php foreach($list_product as $product): ?>
-               <div class="col-6 col-md-3 mb-4">
-                <?php require 'views/frontend/product-item.php'; ?>
-                </div>
-            <?php endforeach; ?>
+                  <?php foreach($list_product as $product):?>
+                     <div class="col-6 col-md-3 mb-4">
+                       <?php require 'views/frontend/product-item.php';?>
+                     </div>
+                  <?php endforeach;?>
+                     
                   </div>
                </div>
                <nav aria-label="Phân trang">
                   <ul class="pagination justify-content-center">
                      <li class="page-item">
-                        <a class="page-link text-main" href="product_category.html" aria-label="Previous">
+                        <a class="page-link text-main" href="product-category.php" aria-label="Previous">
                            <span aria-hidden="true">&laquo;</span>
                         </a>
                      </li>
                      <li class="page-item">
-                        <a class="page-link text-main" href="product_category.html">1</a>
+                     <a class="page-link text-main" href="product-category.php">1</a>
                      </li>
                      <li class="page-item">
-                        <a class="page-link text-main" href="product_category.html">2</a>
+                        <a class="page-link text-main" href="product-category.php">2</a>
                      </li>
                      <li class="page-item">
-                        <a class="page-link text-main" href="product_category.html">3</a>
+                        <a class="page-link text-main" href="product-category.php">3</a>
                      </li>
                      <li class="page-item">
-                        <a class="page-link text-main" href="product_category.html" aria-label="Next">
+                        <a class="page-link text-main" href="product-category.php" aria-label="Next">
                            <span aria-hidden="true">&raquo;</span>
                         </a>
                      </li>
@@ -97,4 +97,4 @@ if(count($list_category1) > 0){
          </div>
       </div>
    </section>
-<?php require_once "views/frontend/footer.php";?>
+   <?php require_once "views/frontend/footer.php";?>

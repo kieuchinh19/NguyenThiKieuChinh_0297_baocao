@@ -1,2 +1,2 @@
 <?php
-echo "ảo";
+echo "NTKC";

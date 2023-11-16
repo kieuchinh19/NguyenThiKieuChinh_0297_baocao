@@ -2,103 +2,104 @@
 
 use App\Models\Topic;
 
-//status=0--> Rac
-//status=1--> Hiện thị lên trang người dùng
-//
-//SELECT * FROM brand wher status!=0 and id=1 order by created_at desc
 
-$list = topic::where('status', '!=', 0)->orderBy('created_at', 'DESC')->get();
+$list = Topic::where('status','!=','0')->orderBy('created_at','DESC')->get();
 
 ?>
+<?php require_once('../views/backend/header.php'); ?>
+<div class="content-wrapper">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Tất cả chủ đề</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="index.php">Bảng điều khiển</a></li>
+            <li class="breadcrumb-item active">Tất cả chủ đề</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
 
-<?php require_once "../views/backend/header.php"; ?>
-<!-- CONTENT -->
-<form action="index.php?option=topic&cat=process" method="post" enctype="multipart/form-data">
+  <!-- Main content -->
+  <section class="content">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-12 text-right">
+            <a class="btn btn-sm btn-success" href="index.php?option=topic&cat=create">
+              <i class="fas fa-plus"></i> Thêm
+            </a>
 
-   <div class="content-wrapper">
-      <section class="content-header">
-         <div class="container-fluid">
-            <div class="row mb-2">
-               <div class="col-sm-12">
-                  <h1 class="d-inline">Tất cả chủ đề</h1>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- Main content -->
-      <section class="content">
-         <div class="card">
-            <div class="card-header text-right">
-               <button class="btn btn-sm btn-success" type="submit" name="THEM">
-                  <i class="fa fa-save" aria-hidden="true"></i>
-                  Lưu
-               </button>
-            </div>
-            <div class="card-body">
-               <div class="row">
-                  <div class="col-md-4">
-                     <div class="mb-3">
-                        <label>Tên chủ đề (*)</label>
-                        <input type="text" name="name" class="form-control">
-                     </div>
-                     <div class="mb-3">
-                        <label>slug</label>
-                        <input type="text" name="slug" class="form-control">
-                     </div>
-                     <div class="mb-3">
-                        <label>Mô tả</label>
-                        <textarea name="description" class="form-control"></textarea>
-                     </div>
-                     <div class="mb-3">
-                        <label>Trạng thái</label>
-                        <select name="status" class="form-control">
-                           <option value="1">Xuất bản</option>
-                           <option value="2">Chưa xuất bản</option>
-                        </select>
-                     </div>
-                  </div>
-                  <div class="col-md-8">
-                     <table class="table table-bordered">
-                        <thead>
-                           <tr>
-                              <th class="text-center" style="width:30px;">
-                                 <input type="checkbox">
-                              </th>
-                              <th>Tên chủ đề</th>
-                              <th>Tên slug</th>
-                           </tr>
-                        </thead>
-                        <tbody>
-                           <?php if (count($list) > 0) : ?>
-                              <?php foreach ($list as $item) : ?>
-                                 <tr class="datarow">
-                                    <td>
-                                    <input type="checkbox">
-                                    </td>
-                                    <td>
-                                       <div class="name">
-                                          <?= $item->name; ?>
+            <a class="btn btn-sm btn-danger" href="index.php?option=topic&cat=trash">
+              <i class="fas fa-trash"></i> Thùng rác
+            </a>
+          </div>
+        </div>
 
-                                       </div>
-                                       <div class="function_style">
-                                          <a href="#">Hiện</a> |
-                                          <a href="#">Chỉnh sửa</a> |
-                                          <a href="../backend/topic_show.html">Chi tiết</a> |
-                                          <a href="#">Xoá</a>
-                                       </div>
-                                    </td>
-                                    <td><?= $item->slug ?></td>
-                                 </tr>
-                              <?php endforeach; ?>
-                           <?php endif; ?>
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-   </div>
-</form>
-<!-- END CONTENT-->
-<?php require_once "../views/backend/footer.php"; ?>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="text-center" style="width: 20px;">#</th>
+              <th>Tên chủ đề </th>
+              <th>slug</th>
+              <th class="text-center" style="width:100px;">Ngày tạo</th>
+              <th class="text-center" style="width:200px;">Chức năng</th>
+              <th class="text-center" style="width:20px;">ID</th>
+            </tr>
+
+          </thead>
+          <tbody>
+            <?php foreach ($list as $row) : ?>
+            
+
+              <tr>
+
+                <td class="text-center">
+                  <input type="checkbox">
+
+                </td>
+                <td><?= $row['name'] ?></td>
+                <td><?= $row['slug'] ?></td>
+                <td class="text-center"><?= $row['created_at'] ?></td>
+                <td class="text-center">
+                  <?php if($row['status']==1):?>
+                    <a class="btn btn-sm btn-success" href="index.php?option=topic&cat=status&id=<?= $row['id'] ?>">
+                  <i class="fas fa-toggle-on"></i>
+                  </a>
+                  <?php else:?>
+                    <a class="btn btn-sm btn-danger" href="index.php?option=topic&cat=status&id=<?= $row['id'] ?>">
+                  <i class="fas fa-toggle-off"></i>
+                  </a>
+                  <?php endif;?>
+                  <a class="btn btn-sm btn-info" href="index.php?option=topic&cat=detail&id=<?= $row['id'] ?>">
+                  <i class="fas fa-eye"></i>
+                  </a>
+
+                  <a class="btn btn-sm btn-primary" href="index.php?option=topic&cat=edit&id=<?= $row['id'] ?>">
+                  <i class="fas fa-edit"></i>
+                  </a>
+
+                  <a class="btn btn-sm btn-danger" href="index.php?option=topic&cat=delete&id=<?= $row['id'] ?>">
+                  <i class="fas fa-trash"></i>
+                  </a>
+          
+                </td>
+                <td class="text-center"><?= $row['id'] ?></td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer">
+        Footer
+      </div>
+    </div>
+  </section>
+</div>
+<?php require_once('../views/backend/footer.php'); ?>

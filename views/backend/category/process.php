@@ -1,34 +1,35 @@
 <?php
-
 use App\Models\Category;
-use App\Libraries\MyClass;
+use App\Libraries\Myclass;
+use App\Libraries\MessageArt;
+if(isset($_POST['THEM']))
+{
+    $row=new Category;
+    $row->name=$_POST['name'];
+    $row->parent_id=$_POST['parent_id'];
+    $row->status=$_POST['status'];
+    $row->slug= Myclass::str_slug($_POST['name']);
+    $row->created_at= date('Y-m-d H:i:s');
+    $row->created_by=1;
+    //INSERT INTO db_category() VALUES()
+    $row->save();
+    MessageArt::set_flash('message',['type'=>'success','msg'=>'Thêm thành công']);
+    header('location:index.php?option=category');
 
-if (isset($_POST['THEM'])) {
-    $category = new Category();
-    // lay tu from
-    $category->name = $_POST['name'];
-    $category->slug = (strlen($_POST['slug']) > 0) ? $_POST['slug'] : MyClass::str_slug($_POST['name']);
-    $category->description = $_POST['description'];
-    $category->status = $_POST['status'];
+}
+if(isset($_POST['CAPNHAT']))
+{
+    $id=$_POST['id'];
+    $row= Category::find($id);
+    $row->name=$_POST['name'];
+    $row->parent_id=$_POST['parent_id'];
+    $row->status=$_POST['status'];
+    $row->slug= Myclass::str_slug($_POST['name']);
+    $row->updated_at= date('Y-m-d H:i:s');
+    $row->updated_by=1;
+    //INSERT INTO db_category() VALUES()
+    $row->save();
+    MessageArt::set_flash('message',['type'=>'success','msg'=>'Cập nhật thành công']);
+    header('location:index.php?option=category');
 
-    //xu ly up load
-    if (strlen($_FILES['image']['name']) > 0) {
-        $target_dir = "../public/images/category/";
-        $target_file = $target_dir . basename($_FILES["image"]["name"]);
-        $extension = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        if (in_array($extension, ['jpg', 'jpeg', 'png', 'gif', 'webp'])) {
-            $filename = $category->slug . "." . $extension;
-            move_uploaded_file($_FILES['image']['tmp_name'], $target_dir . $filename);
-            $category->image = $filename;
-        }
-    }
-    // tu sinh ra 
-    $category->created_at = date('Y-m-d H:i:s');
-    $category->created_by = (isset($_SESSION['user_id'])) ? $_SESSION['user_id'] : 1;
-    var_dump($category);
-    //luu vao csdl
-    //insert into category
-    $category->save();
-    //chuyen huong ve index 
-    header("location:index.php?option=category");
 }

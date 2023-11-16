@@ -1,97 +1,105 @@
 <?php
 
+use App\Models\Post;
 use App\Models\Topic;
 
 
-//status=0--> Rac
-//status=1--> Hiện thị lên trang người dùng
-//
-//SELECT * FROM brand wher status!=0 and id=1 order by created_at desc
-
-$list_topic = Topic::where('status', '!=', 0)->orderBy('Created_at', 'DESC')->get();
-
-$topic_id_html = "";
-
+$list = Post::where('status', '!=', '0')->get();
+$list_topic = Topic::where('status', '!=', '0')->get();
+$html_topic_id = '';
 foreach ($list_topic as $topic) {
-   $topic_id_html .= "<option value ='$topic->id'>$topic->name</option>";
+    $html_topic_id .= "<option value='" . $topic->id . "'>" . $topic->name . "</option>";
+
 }
 ?>
-<?php require_once "../views/backend/header.php"; ?>
+<?php require_once('../views/backend/header.php'); ?>
 
-<!-- CONTENT -->
-<form action="index.php?option=post&cat=process" method="post" enctype="multipart/form-data">
+<form action="index.php?option=post&cat=process" method="post" enctype="multipart/form-data"/>
+    <div class="content-wrapper">
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Thêm bài viết</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="index.php">Bảng điều khiển</a></li>
+                            <li class="breadcrumb-item active">Thêm bài viết</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button name="THEM" type="submit" class="btn btn-sm btn-success">
+                                <i class="fas fa-save"></i> Lưu[Thêm]
+                            </button>
+                            <a class="btn btn-sm btn-info" href="index.php?option=post">
+                                <i class="fas fa-arrow-left"></i>Quay Về Danh Sách
+                            </a>
+                        </div>
 
-   <div class="content-wrapper">
-      <section class="content-header">
-         <div class="container-fluid">
-            <div class="row mb-2">
-               <div class="col-sm-12">
-                  <h1 class="d-inline">Thêm mới bài viết</h1>
-               </div>
-            </div>
-         </div>
-      </section>
-      <section class="content">
-         <div class="card">
-            <div class="card-header text-right">
-               <a href="index.php?option=post" class="btn btn-sm btn-info">
-                  <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                  Về danh sách
-               </a>
-               <button class="btn btn-sm btn-success" type="submit" name="THEM">
-                  <i class="fa fa-save" aria-hidden="true"></i>
-                  Thêm bài viết
-               </button>
-            </div>
-            <div class="card-body">
-               <div class="row">
-                  <div class="col-md-9">
-                     <div class="mb-3">
-                        <label>Tiêu đề bài viết (*)</label>
-                        <input type="text" name="title" class="form-control">
-                     </div>
-                     <div class="mb-3">
-                        <label>Slug</label>
-                        <input type="text" name="slug" class="form-control">
-                     </div>
-                     <div class="mb-3">
-                        <label>Kiểu</label>
-                        <textarea name="type" class="form-control"></textarea>
-                     </div>
-                     <div class="mb-3">
-                        <label>Mô tả</label>
-                        <textarea name="description" class="form-control"></textarea>
-                     </div>
-                     <div class="mb-3">
-                        <label>Chi tiết (*)</label>
-                        <textarea name="detail" rows="5" class="form-control"></textarea>
-                     </div>
-                  </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="mb-3">
+                                <label for="title">Tên bài viết</label>
+                                <input name="title" id="title" type="text" class="form-control" require placeholder="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="detail">Chi tiết bài viết</label>
+                                <textarea name="detail" id="detail" class="form-control" required required
+                                    placeholder=""></textarea>
+                            </div>
 
-                  <div class="col-md-3">
-                     <div class="mb-3">
-                        <label>Chủ đề (*)</label>
-                        <select name="topic_id" class="form-control">
-                           <option value="">None</option>
-                           <?= $topic_id_html; ?>
-                        </select>
-                     </div>
-                     <div class="mb-3">
-                     <label>Hình đại diện</label>
-                        <input type="file" name="image" class="form-control">
-                     </div>
-                     <div class="mb-3">
-                        <label>Trạng thái</label>
-                        <select name="status" class="form-control">
-                           <option value="1">Xuất bản</option>
-                           <option value="2">Chưa xuất bản</option>
-                        </select>
-                     </div>
-                  </div>
-               </div>
+                            <div class="mb-3">
+                                <label for="metadesc">Mô tả(SE0)</label>
+                                <textarea name="metadesc" id="metadesc" class="form-control" required required
+                                    placeholder=""></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="metakey">Từ khoá(SE0)</label>
+                                <textarea name="metakey" id="metakey" class="form-control" required required
+                                    placeholder=""></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="topic_id">Chủ đề bài viết</label>
+                                <select id="topic_id" name="topic_id" class="form-control" required>
+                                    <option value="">
+                                        --Chọn chủ đề--
+                                    </option>
+                                    <?= $html_topic_id; ?>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="img">Hình ảnh</label>
+                                <input name="img" id="img" type="file" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="status">Trạng thái</label>
+                                <select id="status" name="status" class="form-control">
+                                    <option value="2">
+                                        Chưa xuất bản
+                                    </option>
+                                    <option value="1">
+                                        Xuất bản
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </section>
-   </div>
+        </section>
+    </div>
 </form>
-<?php require_once "../views/backend/footer.php"; ?>
+<?php require_once('../views/backend/footer.php'); ?>

@@ -37,6 +37,9 @@ foreach ($list as $parent_id) {
                   <i class="fa fa-save" aria-hidden="true"></i>
                   Lưu
                </button>
+               <a class="btn btn-sm btn-danger" href="index.php?option=category&cat=trash">
+              <i class="fas fa-trash"></i> Thùng rác
+            </a>
             </div>
             <div class="card-body">
                <div class="row">
@@ -102,10 +105,22 @@ foreach ($list as $parent_id) {
 
                                        </div>
                                        <div class="function_style">
-                                          <a href="#">Hiện</a> |
-                                          <a href="#">Chỉnh sửa</a> |
-                                          <a href="../backend/category_show.html">Chi tiết</a> |
-                                          <a href="#">Xoá</a>
+                                          <?php if ($item->status == 1) : ?>
+                                             <a href="index.php?option=category&cat=status&id=<?= $item->id; ?>
+                                          " class="btn btn-success btn-xs"><i class="fas fa-toggle-on"></i>Hiện
+                                             </a>
+                                          <?php else : ?>
+                                             <a href="index.php?option=category&cat=status&id=<?= $item->id; ?>
+                                          " class="btn btn-danger btn-xs"><i class="fas fa-toggle-off"></i>Ẩn
+                                             </a>
+                                          <?php endif; ?>
+
+                                          <a href="index.php?option=category&cat=edit&id=<?= $item->id; ?>
+                                          " class="btn btn-primary btn-xs"><i class="fas fa-edit"></i>Chỉnh sửa</a>
+                                          <a href="index.php?option=category&cat=show&id=<?= $item->id; ?>
+                                          " class="btn btn-info btn-xs"><i class="fas fa-eye"></i>Chi tiết</a>
+                                          <a href="index.php?option=category&cat=delete&id=<?= $item->id; ?>
+                                          " class="btn btn-danger btn-xs"><i class="fas fa-trash"></i>Xoá</a>
                                        </div>
                                     </td>
                                     <td><?= $item->parent_id ?></td>

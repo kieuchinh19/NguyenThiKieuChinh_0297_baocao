@@ -1,23 +1,35 @@
 <?php
 
-
 use App\Models\Banner;
-use App\Libraries\MyClass;
+use App\Libraries\Myclass;
+use App\Libraries\MessageArt;
+use App\Models\Brand;
 
 if (isset($_POST['THEM'])) {
-    $banner = new Banner();
-    $banner->name = $_POST['name'];
-    $banner->link = $_POST['link'];
-    $banner->position = $_POST['position'];
+        $banner = Banner::find('id');
+        $row->name = $_POST['name'];
+        $row->position = $_POST['position'];
 
-    $banner->status = $_POST['status'];
+        $row->status = $_POST['status'];
+        $row->created_at = date('Y-m-d H:i:s');
+        $row->created_by = 1;
+        $row->save();
+        MessageArt::set_flash('message', ['type' => 'success', 'msg' => 'Thêm thành công']);
+        header('location:index.php?option=banner');
+    }
 
 
-    $banner->created_at = date('Y-m-d h:i:s');
-    $banner->created_by = (isset($_SESSION['user_id'])) ? $_SESSION['user_id'] : 1;
-    var_dump($banner);
+if (isset($_POST['CAPNHAT'])) {
+    $id = $_POST['id'];
+    $row = Banner::find($id);
+    $row->name = $_POST['name'];
+    $row->position = $_POST['position'];
 
-    $banner->save();
-
-    header("location:index.php?option=banner");
+    $row->sort_order = $_POST['sort_order'];
+    $row->status = $_POST['status'];
+    $row->updated_at = date('Y-m-d H:i:s');
+    $row->updated_by = 1;
+    $row->save();
+    MessageArt::set_flash('message', ['type' => 'success', 'msg' => 'Cập nhật thành công']);
+    header('location:index.php?option=banner');
 }

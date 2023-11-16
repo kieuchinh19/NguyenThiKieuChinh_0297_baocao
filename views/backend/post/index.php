@@ -45,14 +45,16 @@ $list = Post::join('topic', 'post.topic_id', '=', 'topic.id')
                      </tr>
                   </thead>
                   <tbody>
-                     <?php if (count($list) > 0) : ?>
-                        <?php foreach ($list as $item) : ?>
+                     <?php if (count($list) > 0): ?>
+                        <?php foreach ($list as $item): ?>
                            <tr class="datarow">
                               <td>
                                  <input type="checkbox">
                               </td>
                               <td>
-                              <img class="img-fluid" src="../public/images/post/<?=$item->image;?>" alt="<?$item->image;?>">                                    </td>
+                                 <img class="img-fluid" src="../public/images/post/<?= $item->image; ?>"
+                                    alt="<? $item->image; ?>">
+                              </td>
                               </td>
                               <td>
                                  <div class="title">
@@ -60,10 +62,22 @@ $list = Post::join('topic', 'post.topic_id', '=', 'topic.id')
 
                                  </div>
                                  <div class="function_style">
-                                    <a href="#">Hiện</a> |
-                                    <a href="#">Chỉnh sửa</a> |
-                                    <a href="../backend/post_show.html">Chi tiết</a> |
-                                    <a href="#">Xoá</a>
+                                    <?php if ($item->status == 1): ?>
+                                       <a href="index.php?option=post&cat=status&id=<?= $item->id; ?>
+                                          " class="btn btn-success btn-xs"><i class="fas fa-toggle-on"></i>Hiện
+                                       </a>
+                                    <?php else: ?>
+                                       <a href="index.php?option=post&cat=status&id=<?= $item->id; ?>
+                                          " class="btn btn-danger btn-xs"><i class="fas fa-toggle-off"></i>Ẩn
+                                       </a>
+                                    <?php endif; ?>
+
+                                    <a href="index.php?option=post&cat=edit&id=<?= $item->id; ?>
+                                          " class="btn btn-primary btn-xs"><i class="fas fa-edit"></i>Chỉnh sửa</a>
+                                    <a href="index.php?option=post&cat=show&id=<?= $item->id; ?>
+                                          " class="btn btn-info btn-xs"><i class="fas fa-eye"></i>Chi tiết</a>
+                                    <a href="index.php?option=post&cat=delete&id=<?= $item->id; ?>
+                                          " class="btn btn-danger btn-xs"><i class="fas fa-trash"></i>Xoá</a>
                                  </div>
                               </td>
                               <td>
@@ -75,7 +89,7 @@ $list = Post::join('topic', 'post.topic_id', '=', 'topic.id')
                            </tr>
                         <?php endforeach; ?>
                      <?php endif; ?>
-                     </tbody>
+                  </tbody>
                </table>
             </div>
          </div>
